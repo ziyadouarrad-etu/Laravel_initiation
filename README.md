@@ -17,19 +17,19 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 
 ## 🗃️ Data Model
 
-### Loan Model / `loans` table
+### Loan Model / `loans` Table
 
-| Field          | Type                   | Description                           |
-| -------------- | ---------------------- | ------------------------------------- | ---------- | --------- |
-| id             | bigIncrements          | Auto-increment primary key            |
-| borrower_name  | string                 | Borrower’s name (required)            |
-| borrower_email | string                 | Borrower’s email (required)           |
-| book_title     | string                 | Title of the borrowed book (required) |
-| borrowed_at    | date                   | Loan date                             |
-| due_date       | date                   | Due date                              |
-| returned       | boolean, default false | Return status (returned or not)       |
-| status         | enum, default 'active' | Status: `active`                      | `returned` | `overdue` |
-| timestamps     | created_at, updated_at | Managed automatically by Laravel      |
+| Field            | Type                     | Description                                           |
+|-----------------|--------------------------|------------------------------------------------------|
+| id              | bigIncrements            | Auto-increment primary key                            |
+| borrower_name   | string                   | Borrower’s name (required)                            |
+| borrower_email  | string                   | Borrower’s email (required)                           |
+| book_title      | string                   | Title of the borrowed book (required)                |
+| borrowed_at     | date                     | Loan date                                             |
+| due_date        | date                     | Due date                                              |
+| returned        | boolean, default false   | Return status (returned or not)                      |
+| status          | enum, default `active`   | `active | returned | overdue`                         |
+| timestamps      | created_at, updated_at   | Managed automatically by Laravel                     |
 
 ---
 
