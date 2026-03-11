@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLoanRequest;
+use App\Http\Requests\UpdateLoanRequest;
+use App\Models\Loan;
 
 class LoanController extends Controller
 {
@@ -12,7 +15,7 @@ class LoanController extends Controller
     public function index()
     {
         // Display a listing of the loans
-        $loans = \App\Models\Loan::all();
+        $loans = Loan::all();
 
         if ($loans->isEmpty()) {
             $result = [
@@ -33,21 +36,12 @@ class LoanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreLoanRequest $request)
     {
-        //validate the request
-        $validatedData = $request->validate([
-            'borrower_name' => 'required|string|max:255',
-            'borrower_email' => 'required|email|max:255',
-            'book_title' => 'required|string|max:255',
-            'borrowed_at' => 'date',
-            'due_date' => 'date|after:borrowed_at',
-            'returned' => 'boolean',
-            'status' => 'in:active,returned,overdue',
-        ]);
+        $validatedData = $request->validated();
 
         // Create the loan
-        $loan = \App\Models\Loan::create($validatedData);
+        $loan = Loan::create($validatedData);
 
         return response()->json(['message' => 'Loan created successfully', 'data' => $loan], 201);
     }
@@ -58,7 +52,7 @@ class LoanController extends Controller
     public function show(string $id)
     {
         //display the specified loan
-        $loan = \App\Models\Loan::find($id);
+        $loan = Loan::find($id);
 
         if (!$loan) {
             return response()->json(['message' => 'Loan not found.'], 404);
@@ -69,24 +63,13 @@ class LoanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateLoanRequest $request, string $id)
     {
-        //update the specified loan
-        $loan = \App\Models\Loan::find($id);
-
+        $loan = Loan::find($id);
         if (!$loan) {
             return response()->json(['message' => 'Loan not found.'], 404);
         }
-        //validate the request
-        $validatedData = $request->validate([
-            'borrower_name' => 'nullable|string|max:255',
-            'borrower_email' => 'nullable|email|max:255',
-            'book_title' => 'nullable|string|max:255',
-            'borrowed_at' => 'nullable|date',
-            'due_date' => 'nullable|date|after:borrowed_at',
-            'returned' => 'nullable|boolean',
-            'status' => 'nullable|in:active,returned,overdue',
-        ]);
+        $validatedData = $request->validated();
 
         // If no data is provided for update, return an error
         if (empty($validatedData)) {
@@ -106,7 +89,7 @@ class LoanController extends Controller
     public function destroy(string $id)
     {
         //delete the specified loan
-        $loan = \App\Models\Loan::find($id);
+        $loan = Loan::find($id);
         if (!$loan) {
             return response()->json(['message' => 'Loan not found.'], 404);
         }
@@ -118,7 +101,7 @@ class LoanController extends Controller
      */
     public function markAsReturned(string $id)
     {
-        $loan = \App\Models\Loan::find($id);
+        $loan = Loan::find($id);
         if (!$loan) {
             return response()->json(['message' => 'Loan not found.'], 404);
         }

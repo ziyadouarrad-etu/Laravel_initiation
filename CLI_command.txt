@@ -1,0 +1,20 @@
+Initiate laravel project:
+laravel new loans
+
+Start server:
+php artisan serve
+
+make the Loan model, use -m to create the migration
+php artisan make:model Loan -m
+
+run the migration, use fresh to delete all tables first
+php artisan migrate:fresh
+
+make the controller, use --api to use standard CRUD
+php artisan make:controller LoanController --api
+
+make the factory
+php artisan make:factory LoanFactory --model=Loan
+
+make the seeder
+php artisan make:seeder LoanSeeder

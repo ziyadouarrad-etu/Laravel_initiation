@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('loans', App\Http\Controllers\LoanController::class);
+Route::apiResource('loans', LoanController::class);
 
 // Additional route for marking a loan as returned via PATCH request
-Route::patch('loans/{id}/return', [App\Http\Controllers\LoanController::class, 'markAsReturned']);
+Route::patch('loans/{id}/return', [LoanController::class, 'markAsReturned']);

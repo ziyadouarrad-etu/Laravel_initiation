@@ -17,10 +17,10 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 
 ## 🗃️ Data Model
 
-### Loan Model / `loans` table
+### Loan Model / `loans` Table
 
 | Field          | Type                   | Description                           |
-| -------------- | ---------------------- | ------------------------------------- | ---------- | --------- |
+| -------------- | ---------------------- | ------------------------------------- | -------- | -------- |
 | id             | bigIncrements          | Auto-increment primary key            |
 | borrower_name  | string                 | Borrower’s name (required)            |
 | borrower_email | string                 | Borrower’s email (required)           |
@@ -28,7 +28,7 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 | borrowed_at    | date                   | Loan date                             |
 | due_date       | date                   | Due date                              |
 | returned       | boolean, default false | Return status (returned or not)       |
-| status         | enum, default 'active' | Status: `active`                      | `returned` | `overdue` |
+| status         | enum, default `active` | `active                               | returned | overdue` |
 | timestamps     | created_at, updated_at | Managed automatically by Laravel      |
 
 ---
@@ -37,45 +37,97 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 
 ### Standard CRUD (`Route::apiResource('loans', LoanController)`)
 
-| Method | URI             | Description              | Status Code  |
-| ------ | --------------- | ------------------------ | ------------ |
-| GET    | /api/loans      | List all loans           | 200 OK       |
-| POST   | /api/loans      | Create a new loan        | 201 Created  |
-| GET    | /api/loans/{id} | Retrieve a specific loan | 200 OK / 404 |
-| PUT    | /api/loans/{id} | Update a loan            | 200 OK / 404 |
-| DELETE | /api/loans/{id} | Delete a loan            | 204 / 404    |
+Method
+
+URI
+
+Description
+
+Status Code
+
+GET
+
+/api/loans
+
+List all loans
+
+200 OK
+
+POST
+
+/api/loans
+
+Create a new loan
+
+201 Created
+
+GET
+
+/api/loans/{id}
+
+Retrieve a specific loan
+
+200 OK / 404
+
+PUT
+
+/api/loans/{id}
+
+Update a loan
+
+200 OK / 404
+
+DELETE
+
+/api/loans/{id}
+
+Delete a loan
+
+204 / 404
 
 ### Custom Route
 
-| Method | URI                    | Description             | Status Code  |
-| ------ | ---------------------- | ----------------------- | ------------ |
-| PATCH  | /api/loans/{id}/return | Mark a loan as returned | 200 OK / 404 |
+Method
+
+URI
+
+Description
+
+Status Code
+
+PATCH
+
+/api/loans/{id}/return
+
+Mark a loan as returned
+
+200 OK / 404
 
 ---
 
 ## 🏃 How to Run
 
-1. Clone the repository
-2. Install dependencies:
+1.  Clone the repository
+2.  Install dependencies:
 
 ```bash
 composer install
 ```
 
-3. Set up `.env` file and configure database
-4. Run migrations:
+3.  Set up `.env` file and configure database
+4.  Run migrations:
 
 ```bash
 php artisan migrate
 ```
 
-5. Start the server:
+5.  Start the server:
 
 ```bash
 php artisan serve
 ```
 
-6. Test endpoints with **Postman** 🧪
+6.  Test endpoints with **Postman** 🧪
 
 ---
 
