@@ -20,7 +20,7 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 ### Loan Model / `loans` Table
 
 | Field          | Type                   | Description                           |
-| -------------- | ---------------------- | ------------------------------------- | -------- | -------- |
+| -------------- | ---------------------- | ------------------------------------- |
 | id             | bigIncrements          | Auto-increment primary key            |
 | borrower_name  | string                 | Borrower’s name (required)            |
 | borrower_email | string                 | Borrower’s email (required)           |
@@ -28,7 +28,7 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 | borrowed_at    | date                   | Loan date                             |
 | due_date       | date                   | Due date                              |
 | returned       | boolean, default false | Return status (returned or not)       |
-| status         | enum, default `active` | `active                               | returned | overdue` |
+| status         | enum, default `active` | active , returned , overdue           |
 | timestamps     | created_at, updated_at | Managed automatically by Laravel      |
 
 ---
