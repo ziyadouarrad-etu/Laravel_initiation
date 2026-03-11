@@ -35,73 +35,21 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 
 ## 🚀 API Endpoints
 
-### Standard CRUD (`Route::apiResource('loans', LoanController)`)
+#### Standard CRUD (`Route::apiResource('loans', LoanController)`)
 
-Method
+| Method | URI               | Description              | Status Code                    |
+| ------ | ----------------- | ------------------------ | ------------------------------ |
+| GET    | `/api/loans`      | List all loans           | 200 OK                         |
+| POST   | `/api/loans`      | Create a new loan        | 201 Created                    |
+| GET    | `/api/loans/{id}` | Retrieve a specific loan | 200 OK / 404 Not Found         |
+| PUT    | `/api/loans/{id}` | Update a loan            | 200 OK / 404 Not Found         |
+| DELETE | `/api/loans/{id}` | Delete a loan            | 204 No Content / 404 Not Found |
 
-URI
+#### Custom Route
 
-Description
-
-Status Code
-
-GET
-
-/api/loans
-
-List all loans
-
-200 OK
-
-POST
-
-/api/loans
-
-Create a new loan
-
-201 Created
-
-GET
-
-/api/loans/{id}
-
-Retrieve a specific loan
-
-200 OK / 404
-
-PUT
-
-/api/loans/{id}
-
-Update a loan
-
-200 OK / 404
-
-DELETE
-
-/api/loans/{id}
-
-Delete a loan
-
-204 / 404
-
-### Custom Route
-
-Method
-
-URI
-
-Description
-
-Status Code
-
-PATCH
-
-/api/loans/{id}/return
-
-Mark a loan as returned
-
-200 OK / 404
+| Method | URI                      | Description             | Status Code            |
+| ------ | ------------------------ | ----------------------- | ---------------------- |
+| PATCH  | `/api/loans/{id}/return` | Mark a loan as returned | 200 OK / 404 Not Found |
 
 ---
 

@@ -18,3 +18,6 @@ php artisan make:factory LoanFactory --model=Loan
 
 make the seeder
 php artisan make:seeder LoanSeeder
+
+run the seeder, use --class if you havent updated DatabaseSeeder
+php artisan db:seed --class=Loan
