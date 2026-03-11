@@ -28,7 +28,7 @@ A REST API built in **Laravel** for managing book loans in a library. This proje
 | borrowed_at     | date                     | Loan date                                             |
 | due_date        | date                     | Due date                                              |
 | returned        | boolean, default false   | Return status (returned or not)                      |
-| status          | enum, default `active`   | `active | returned | overdue`                         |
+| status          | enum, default `active`   | active , returned , overdue                         |
 | timestamps      | created_at, updated_at   | Managed automatically by Laravel                     |
 
 ---
