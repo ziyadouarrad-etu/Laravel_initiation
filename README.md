@@ -1,6 +1,6 @@
 # 📚 Book Loans API – Laravel
 
-A REST API built in **Laravel** for managing book loans in a library. This project was implemented as part of a backend lab (TP), covering migrations, models, controllers, routes, validations, and API testing with Postman.
+A RESTful API built in **Laravel** for managing book loans in a library. This project was implemented as part of a backend lab (TP), covering migrations, models, controllers, routes, validations, and API testing with Postman.
 
 ---
 
